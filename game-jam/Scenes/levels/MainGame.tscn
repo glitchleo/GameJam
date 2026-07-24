@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cfyfnugfxo1oa"]
+
+[ext_resource type="PackedScene" uid="uid://bs4o7aytn5xrw" path="res://Scenes/chunks/TestChunk.tscn" id="1_heoh8"]
+[ext_resource type="PackedScene" uid="uid://d2r56ni2itbau" path="res://Scenes/actors/Player.tscn" id="2_wb3b2"]
+
+[node name="Node2D" type="Node2D" unique_id=1309891255]
+
+[node name="TestChunk" parent="." unique_id=877975424 instance=ExtResource("1_heoh8")]
+position = Vector2(-9.87088, 555.2422)
+
+[node name="Player" parent="." unique_id=1671369934 instance=ExtResource("2_wb3b2")]
+position = Vector2(199, 571)

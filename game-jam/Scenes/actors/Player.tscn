@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d2r56ni2itbau"]
+
+[ext_resource type="Texture2D" uid="uid://vtqthx6phgpd" path="res://assets/sprites/1.png" id="1_1onnt"]
+[ext_resource type="Script" uid="uid://d1ktbvtq0x3s0" path="res://scripts/player.gd" id="1_310tt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1onnt"]
+size = Vector2(11, 26)
+
+[node name="Player" type="CharacterBody2D" unique_id=456218846]
+script = ExtResource("1_310tt")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=956009454]
+scale = Vector2(0.041203726, 0.04675926)
+texture = ExtResource("1_1onnt")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=575055104]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_1onnt")
+debug_color = Color(6.738305e-07, 0.60929, 0.64512944, 0.41960785)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=832537707]
+zoom = Vector2(4, 4)
+
+[node name="OxygenTimer" type="Timer" parent="." unique_id=742576882]
