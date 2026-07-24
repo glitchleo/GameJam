@@ -1,12 +1,29 @@
 [gd_scene format=3 uid="uid://cfyfnugfxo1oa"]
 
-[ext_resource type="PackedScene" uid="uid://bs4o7aytn5xrw" path="res://Scenes/chunks/TestChunk.tscn" id="1_heoh8"]
+[ext_resource type="PackedScene" uid="uid://bjrlwvfx2iu6g" path="res://Scenes/chunks/floor.tscn" id="2_heoh8"]
 [ext_resource type="PackedScene" uid="uid://d2r56ni2itbau" path="res://Scenes/actors/Player.tscn" id="2_wb3b2"]
 
 [node name="Node2D" type="Node2D" unique_id=1309891255]
 
-[node name="TestChunk" parent="." unique_id=877975424 instance=ExtResource("1_heoh8")]
-position = Vector2(-9.87088, 555.2422)
-
 [node name="Player" parent="." unique_id=1671369934 instance=ExtResource("2_wb3b2")]
-position = Vector2(199, 571)
+position = Vector2(66, 69.00001)
+scale = Vector2(1, 0.99999994)
+floor_stop_on_slope = false
+
+[node name="floor" parent="." unique_id=577940988 instance=ExtResource("2_heoh8")]
+position = Vector2(100, 114.99999)
+
+[node name="floor2" parent="." unique_id=75882205 instance=ExtResource("2_heoh8")]
+position = Vector2(224, 115)
+
+[node name="floor3" parent="." unique_id=2047665704 instance=ExtResource("2_heoh8")]
+position = Vector2(348, 116)
+
+[node name="floor4" parent="." unique_id=496671704 instance=ExtResource("2_heoh8")]
+position = Vector2(432, 39.999996)
+
+[node name="floor5" parent="." unique_id=1972757704 instance=ExtResource("2_heoh8")]
+position = Vector2(223, -34.999996)
+
+[node name="floor6" parent="." unique_id=1671858084 instance=ExtResource("2_heoh8")]
+position = Vector2(99, -34.999996)

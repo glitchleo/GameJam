@@ -7,6 +7,7 @@
 size = Vector2(11, 26)
 
 [node name="Player" type="CharacterBody2D" unique_id=456218846]
+platform_wall_layers = 1
 script = ExtResource("1_310tt")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=956009454]
@@ -19,6 +20,10 @@ shape = SubResource("RectangleShape2D_1onnt")
 debug_color = Color(6.738305e-07, 0.60929, 0.64512944, 0.41960785)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=832537707]
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 
 [node name="OxygenTimer" type="Timer" parent="." unique_id=742576882]
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=1390240687]
+wait_time = 0.1
+one_shot = true
