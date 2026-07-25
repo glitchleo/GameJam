@@ -3,32 +3,51 @@
 [ext_resource type="PackedScene" uid="uid://d2r56ni2itbau" path="res://Scenes/actors/Player.tscn" id="2_wb3b2"]
 [ext_resource type="PackedScene" uid="uid://my06bpfsxam8" path="res://Scenes/actors/OxygenTank.tscn" id="3_wb3b2"]
 [ext_resource type="PackedScene" uid="uid://bk63a016y557x" path="res://Scenes/chunks/TestingChunk.tscn" id="4_mo533"]
+[ext_resource type="PackedScene" uid="uid://sbkrposu4n28" path="res://Scenes/chunks/parallax_background.tscn" id="4_te3ih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo533"]
+size = Vector2(288, 2182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te3ih"]
+size = Vector2(288, 2182)
 
 [node name="Node2D" type="Node2D" unique_id=1309891255]
 
 [node name="Player" parent="." unique_id=1671369934 instance=ExtResource("2_wb3b2")]
-position = Vector2(147, 168)
+position = Vector2(854, 411)
 scale = Vector2(1, 0.99999994)
 maxSpeed = 304.977
-jumpHeight = 5.305
-gravityScale = 29.977
-terminalVelocity = 599.548
-descendingGravityFactor = 1.153
+jumpHeight = 3.0
+gravityScale = 30.0
+descendingGravityFactor = 1.617
 
 [node name="OxygenTank" parent="." unique_id=1197126811 instance=ExtResource("3_wb3b2")]
-position = Vector2(335, 71)
+position = Vector2(820, -79)
 
 [node name="OxygenTank2" parent="." unique_id=863881530 instance=ExtResource("3_wb3b2")]
-position = Vector2(508, -21)
+position = Vector2(1045, 423)
 
 [node name="OxygenTank3" parent="." unique_id=658201128 instance=ExtResource("3_wb3b2")]
-position = Vector2(104, -376)
+position = Vector2(1279, 363)
 
 [node name="OxygenTank4" parent="." unique_id=431063463 instance=ExtResource("3_wb3b2")]
-position = Vector2(120, -282)
+position = Vector2(1017, -204)
 
 [node name="OxygenTank5" parent="." unique_id=86886552 instance=ExtResource("3_wb3b2")]
 position = Vector2(361, -597)
 
 [node name="TestChunk" parent="." unique_id=964612007 instance=ExtResource("4_mo533")]
+position = Vector2(695, 403)
 tile_map_data = PackedByteArray("AAAEAAMAAAABAAAAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAKAAMAAAABAAAAAAALAAMAAAABAAAAAAAMAAMAAAABAAAAAAAMAAQAAAABAAEAAAALAAQAAAABAAEAAAAKAAQAAAABAAEAAAAJAAQAAAABAAEAAAAIAAQAAAABAAEAAAAHAAQAAAABAAEAAAAGAAQAAAABAAEAAAAFAAQAAAABAAEAAAAEAAQAAAABAAEAAAADAAQAAAABAAEAAAACAAQAAAABAAEAAAABAAQAAAAAAAEAAAACAAUAAAABAAEAAAADAAUAAAABAAEAAAAEAAUAAAABAAEAAAAFAAUAAAABAAEAAAAGAAUAAAABAAEAAAAHAAUAAAABAAEAAAAIAAUAAAABAAEAAAAJAAUAAAABAAEAAAAKAAUAAAABAAEAAAALAAUAAAABAAEAAAAMAAUAAAABAAEAAAABAAUAAAAAAAEAAAADAAMAAAABAAAAAAACAAMAAAABAAAAAAABAAMAAAAAAAAAAAARAAMAAAAAAAAAAAASAAMAAAABAAAAAAATAAMAAAABAAAAAAAUAAMAAAABAAAAAAAVAAMAAAACAAAAAAANAAMAAAACAAAAAAANAAQAAAACAAEAAAANAAUAAAACAAEAAAAPAAAAAAAAAAAAAAAQAAAAAAABAAAAAAARAAAAAAABAAAAAAASAAAAAAABAAAAAAATAAAAAAACAAAAAAALAP3/AAAAAAAAAAAMAP3/AAABAAAAAAANAP3/AAABAAAAAAAOAP3/AAACAAAAAAADAPn/AAAAAAEAAAADAPr/AAAAAAEAAAAGAPv/AAACAAEAAAAGAPz/AAABAAEAAAAHAPz/AAABAAAAAAAIAPz/AAACAAAAAAAGAPj/AAACAAAAAAAGAPn/AAACAAEAAAAGAPr/AAACAAEAAAAFAPj/AAABAAAAAAAEAPj/AAABAAAAAAADAPj/AAAAAAAAAAAEAPn/AAABAAEAAAAFAPn/AAABAAEAAAAKAPn/AAAAAAAAAAALAPn/AAABAAAAAAAMAPn/AAABAAAAAAANAPn/AAACAAAAAAABAPX/AAAAAAEAAAACAPX/AAABAAAAAAADAPX/AAABAAAAAAAEAPX/AAACAAAAAAABAPH/AAAEAAEAAAABAPL/AAAAAAEAAAABAPP/AAAEAAEAAAABAPT/AAAEAAEAAAACAPL/AAABAAAAAAADAPL/AAABAAAAAAAEAPL/AAACAAAAAAABAO//AAAAAAAAAAABAPD/AAAEAAEAAAACAO//AAABAAAAAAADAO//AAABAAAAAAAEAO//AAACAAAAAAAHAO7/AAAAAAAAAAAIAO7/AAABAAAAAAAJAO7/AAABAAAAAAAKAO7/AAABAAAAAAALAO7/AAACAAAAAAAEAPr/AAABAAEAAAAFAPr/AAABAAEAAAA=")
+
+[node name="ParallaxBackground" parent="." unique_id=1280149137 instance=ExtResource("4_te3ih")]
+
+[node name="WallBounderies" type="StaticBody2D" parent="." unique_id=402390871]
+
+[node name="LeftWallHitbox" type="CollisionShape2D" parent="WallBounderies" unique_id=69013250]
+position = Vector2(144, 0)
+shape = SubResource("RectangleShape2D_mo533")
+
+[node name="RightWallHitbox" type="CollisionShape2D" parent="WallBounderies" unique_id=1001757042]
+position = Vector2(1776, 0)
+shape = SubResource("RectangleShape2D_te3ih")

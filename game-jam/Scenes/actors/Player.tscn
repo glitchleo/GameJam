@@ -23,7 +23,7 @@ timeDisplay = NodePath("UI/Label")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=956009454]
 position = Vector2(5.684342e-14, -4.0000005)
-scale = Vector2(0.084780104, 0.09103009)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_1onnt")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=575055104]
@@ -49,3 +49,11 @@ offset_left = 86.0
 offset_top = 52.0
 offset_right = 213.0
 offset_bottom = 120.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2009455354]
+zoom = Vector2(0.6, 0.6)
+limit_left = 0
+limit_top = -9999816
+limit_right = 1920
+limit_bottom = 10000184
+limit_smoothed = true
