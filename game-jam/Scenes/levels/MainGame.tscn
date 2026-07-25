@@ -1,29 +1,29 @@
 [gd_scene format=3 uid="uid://cfyfnugfxo1oa"]
 
-[ext_resource type="PackedScene" uid="uid://bjrlwvfx2iu6g" path="res://Scenes/chunks/floor.tscn" id="2_heoh8"]
 [ext_resource type="PackedScene" uid="uid://d2r56ni2itbau" path="res://Scenes/actors/Player.tscn" id="2_wb3b2"]
+[ext_resource type="PackedScene" uid="uid://my06bpfsxam8" path="res://Scenes/actors/OxygenTank.tscn" id="3_wb3b2"]
+[ext_resource type="PackedScene" uid="uid://bk63a016y557x" path="res://Scenes/chunks/TestingChunk.tscn" id="4_mo533"]
 
 [node name="Node2D" type="Node2D" unique_id=1309891255]
 
 [node name="Player" parent="." unique_id=1671369934 instance=ExtResource("2_wb3b2")]
-position = Vector2(66, 69.00001)
+position = Vector2(78, 61)
 scale = Vector2(1, 0.99999994)
 floor_stop_on_slope = false
 
-[node name="floor" parent="." unique_id=577940988 instance=ExtResource("2_heoh8")]
-position = Vector2(100, 114.99999)
+[node name="OxygenTank" parent="." unique_id=1197126811 instance=ExtResource("3_wb3b2")]
+position = Vector2(335, 71)
 
-[node name="floor2" parent="." unique_id=75882205 instance=ExtResource("2_heoh8")]
-position = Vector2(224, 115)
+[node name="OxygenTank2" parent="." unique_id=863881530 instance=ExtResource("3_wb3b2")]
+position = Vector2(508, -21)
 
-[node name="floor3" parent="." unique_id=2047665704 instance=ExtResource("2_heoh8")]
-position = Vector2(348, 116)
+[node name="OxygenTank3" parent="." unique_id=658201128 instance=ExtResource("3_wb3b2")]
+position = Vector2(104, -376)
 
-[node name="floor4" parent="." unique_id=496671704 instance=ExtResource("2_heoh8")]
-position = Vector2(432, 39.999996)
+[node name="OxygenTank4" parent="." unique_id=431063463 instance=ExtResource("3_wb3b2")]
+position = Vector2(120, -282)
 
-[node name="floor5" parent="." unique_id=1972757704 instance=ExtResource("2_heoh8")]
-position = Vector2(223, -34.999996)
+[node name="OxygenTank5" parent="." unique_id=86886552 instance=ExtResource("3_wb3b2")]
+position = Vector2(361, -597)
 
-[node name="floor6" parent="." unique_id=1671858084 instance=ExtResource("2_heoh8")]
-position = Vector2(99, -34.999996)
+[node name="TestChunk" parent="." unique_id=964612007 instance=ExtResource("4_mo533")]

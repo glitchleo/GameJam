@@ -1,29 +1,52 @@
 [gd_scene format=3 uid="uid://d2r56ni2itbau"]
 
 [ext_resource type="Texture2D" uid="uid://vtqthx6phgpd" path="res://assets/sprites/1.png" id="1_1onnt"]
-[ext_resource type="Script" uid="uid://d1ktbvtq0x3s0" path="res://scripts/player.gd" id="1_310tt"]
+[ext_resource type="Script" uid="uid://d1ktbvtq0x3s0" path="res://scripts/PlayerController.gd" id="1_310tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1onnt"]
 size = Vector2(11, 26)
 
-[node name="Player" type="CharacterBody2D" unique_id=456218846]
+[node name="Player" type="CharacterBody2D" unique_id=456218846 node_paths=PackedStringArray("PlayerCollider", "leftRaycast", "middleRaycast", "rightRaycast", "timeDisplay")]
 platform_wall_layers = 1
 script = ExtResource("1_310tt")
+PlayerCollider = NodePath("Hitbox")
+maxSpeed = 250.0
+timeToReachMaxSpeed = 0.3
+jumpHeight = 2.5
+gravityScale = 25.0
+coyoteTime = 0.29
+cornerCutting = true
+leftRaycast = NodePath("LeftRaycast")
+middleRaycast = NodePath("MiddleRaycast")
+rightRaycast = NodePath("RightRaycast")
+timeDisplay = NodePath("UI/Label")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=956009454]
 scale = Vector2(0.041203726, 0.04675926)
 texture = ExtResource("1_1onnt")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=575055104]
-position = Vector2(-1.5, 1)
 shape = SubResource("RectangleShape2D_1onnt")
 debug_color = Color(6.738305e-07, 0.60929, 0.64512944, 0.41960785)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=832537707]
 zoom = Vector2(2, 2)
 
-[node name="OxygenTimer" type="Timer" parent="." unique_id=742576882]
+[node name="LeftRaycast" type="RayCast2D" parent="." unique_id=1820074969]
+position = Vector2(-6, 0)
+target_position = Vector2(0, -16)
 
-[node name="CoyoteTimer" type="Timer" parent="." unique_id=1390240687]
-wait_time = 0.1
-one_shot = true
+[node name="RightRaycast" type="RayCast2D" parent="." unique_id=1572824128]
+position = Vector2(6, 0)
+target_position = Vector2(0, -16)
+
+[node name="MiddleRaycast" type="RayCast2D" parent="." unique_id=1455229721]
+target_position = Vector2(0, -16)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1570077375]
+
+[node name="Label" type="Label" parent="UI" unique_id=705048283]
+offset_left = 86.0
+offset_top = 52.0
+offset_right = 213.0
+offset_bottom = 120.0

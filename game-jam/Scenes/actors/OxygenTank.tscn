@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://my06bpfsxam8"]
+
+[ext_resource type="Script" uid="uid://bxijylvvtwxn7" path="res://scripts/OxygenTank.gd" id="1_biq4y"]
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_y3kn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snsd4"]
+size = Vector2(31.25, 28.5)
+
+[node name="OxygenTank" type="Area2D" unique_id=1197126811]
+script = ExtResource("1_biq4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231954539]
+scale = Vector2(0.25, 0.2421875)
+texture = ExtResource("1_y3kn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1195174719]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_snsd4")
