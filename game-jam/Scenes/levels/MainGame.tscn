@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://my06bpfsxam8" path="res://Scenes/actors/OxygenTank.tscn" id="3_wb3b2"]
 [ext_resource type="PackedScene" uid="uid://bk63a016y557x" path="res://Scenes/chunks/TestingChunk.tscn" id="4_mo533"]
 [ext_resource type="PackedScene" uid="uid://sbkrposu4n28" path="res://Scenes/chunks/parallax_background.tscn" id="4_te3ih"]
+[ext_resource type="AudioStream" uid="uid://bnvw2c68tot0x" path="res://assets/audio/music/GamePlay Audio.ogg" id="5_te3ih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo533"]
 size = Vector2(288, 2182)
@@ -51,3 +52,8 @@ shape = SubResource("RectangleShape2D_mo533")
 [node name="RightWallHitbox" type="CollisionShape2D" parent="WallBounderies" unique_id=1001757042]
 position = Vector2(1776, 0)
 shape = SubResource("RectangleShape2D_te3ih")
+
+[node name="GameplayMusic" type="AudioStreamPlayer" parent="." unique_id=89517049]
+stream = ExtResource("5_te3ih")
+autoplay = true
+bus = &"Music"
