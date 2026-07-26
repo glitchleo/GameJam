@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name PlatformerController2D
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 @export var README: String = "IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'up' 'down' 'run' in the project settings input map."
 
 @export_category("Necessary Child Nodes")
@@ -243,6 +245,8 @@ func _physics_process(delta):
 				position.x -= correctionAmount
 			
 	move_and_slide()
+	_update_animation()
+	
 
 # INFO Tank Pickup Function
 func add_oxygen(amount: float):
@@ -267,3 +271,19 @@ func _decelerate(delta, vertical):
 			velocity.x -= deceleration * delta
 	elif vertical and velocity.y > 0:
 		velocity.y += deceleration * delta
+
+func _update_animation() -> void:
+	if velocity.x > 1.0:
+		animated_sprite.flip_h = false
+	elif velocity.x < -1.0:
+		animated_sprite.flip_h = true
+
+	if not is_on_floor():
+		if velocity.y < 0:
+			animated_sprite.play("jump")
+		else:
+			animated_sprite.play("fall")
+	elif abs(velocity.x) > 1.0:
+		animated_sprite.play("run")
+	else:
+		animated_sprite.play("idle")

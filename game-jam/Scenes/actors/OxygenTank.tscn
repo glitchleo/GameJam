@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxijylvvtwxn7" path="res://scripts/OxygenTank.gd" id="1_biq4y"]
 [ext_resource type="Texture2D" uid="uid://bhn8bswd2y6fx" path="res://assets/sprites/Oxygen Tank.png" id="2_biq4y"]
+[ext_resource type="AudioStream" uid="uid://ccfo5mbqb7tcs" path="res://assets/audio/sfx/TankRefill.ogg" id="3_hhurd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhurd"]
 atlas = ExtResource("2_biq4y")
@@ -64,3 +65,8 @@ frame_progress = 0.48662162
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1195174719]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_snsd4")
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="." unique_id=543312935]
+stream = ExtResource("3_hhurd")
+volume_db = -9.123
+bus = &"SFX"

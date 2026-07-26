@@ -8,8 +8,17 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
-	# Check if the thing that touched the tank is the Player
-	# We use the class_name you defined in your movement script!
 	if body is PlatformerController2D:
-		body.add_oxygen(time_added) # Send the time to the player
-		queue_free() # Delete the oxygen tank from the level
+		body.add_oxygen(time_added)
+
+		# Prevent collecting the tank again.
+		set_deferred("monitoring", false)
+
+		# Remove the tank visually.
+		hide()
+
+		# Play the sound before deleting the tank.
+		$PickupSound.play()
+		await $PickupSound.finished
+
+		queue_free()
