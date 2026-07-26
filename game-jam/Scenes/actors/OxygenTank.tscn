@@ -52,6 +52,7 @@ size = Vector2(31.25, 30)
 
 [node name="OxygenTank" type="Area2D" unique_id=1197126811]
 script = ExtResource("1_biq4y")
+time_added = 8.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1122010616]
 position = Vector2(-5.9604645e-08, -0.99999875)

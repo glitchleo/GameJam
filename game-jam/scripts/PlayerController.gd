@@ -9,6 +9,14 @@ class_name PlatformerController2D
 @export_category("Necessary Child Nodes")
 @export var PlayerCollider: CollisionShape2D
 
+# --- ADD THESE 3 LINES FOR THE SCORE ---
+@export var scoreDisplay: Label 
+@export var score_multiplier: float = 0.1 # 10 pixels climbed = 1 point
+var starting_y: float = 0.0
+var highest_reached_y: float = 0.0
+var current_score: int = 0
+# ---------------------------------------
+
 #INFO HORIZONTAL MOVEMENT 
 @export_category("L/R Movement")
 @export_range(50, 500) var maxSpeed: float = 200.0
@@ -86,6 +94,9 @@ func _ready():
 	# INFO Setup initial oxygen
 	current_oxygen = starting_oxygen
 	
+	starting_y = global_position.y
+	highest_reached_y = starting_y
+	
 func _updateData():
 	acceleration = maxSpeed / timeToReachMaxSpeed
 	deceleration = -maxSpeed / timeToReachZeroSpeed
@@ -135,6 +146,20 @@ func _process(delta):
 	if current_oxygen <= 0:
 		print("Out of time! Game Over.")
 		get_tree().reload_current_scene()
+	# --- ADD THIS SCORE MATH ---
+	# 1. Check if the player has reached a new height (remember, UP is negative Y!)
+	if global_position.y < highest_reached_y:
+		highest_reached_y = global_position.y
+		
+	# 2. Calculate the distance between where they started and their highest point
+	var distance_climbed = starting_y - highest_reached_y
+	
+	# 3. Convert that pixel distance into a clean integer score
+	current_score = int(distance_climbed * score_multiplier)
+	
+	# 4. Update the UI Text
+	if scoreDisplay:
+		scoreDisplay.text = "SCORE: " + str(current_score)
 
 func _physics_process(delta):
 	if !dset:
