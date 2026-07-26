@@ -10,15 +10,15 @@ size = Vector2(16.25, 19.5)
 platform_wall_layers = 1
 script = ExtResource("1_310tt")
 PlayerCollider = NodePath("Hitbox")
-maxSpeed = 250.0
-timeToReachMaxSpeed = 0.3
-jumpHeight = 2.5
-gravityScale = 25.0
-coyoteTime = 0.29
+maxSpeed = 50.0
+timeToReachMaxSpeed = 0.164
+jumpBuffering = 0.25
 cornerCutting = true
+correctionAmount = 3.0
 leftRaycast = NodePath("LeftRaycast")
 middleRaycast = NodePath("MiddleRaycast")
 rightRaycast = NodePath("RightRaycast")
+starting_oxygen = 60.0
 timeDisplay = NodePath("UI/Label")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=956009454]
