@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d1ktbvtq0x3s0" path="res://scripts/PlayerController.gd" id="1_310tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1onnt"]
-size = Vector2(32.5, 49)
+size = Vector2(16.25, 19.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=456218846 node_paths=PackedStringArray("PlayerCollider", "leftRaycast", "middleRaycast", "rightRaycast", "timeDisplay")]
 platform_wall_layers = 1
@@ -22,8 +22,7 @@ rightRaycast = NodePath("RightRaycast")
 timeDisplay = NodePath("UI/Label")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=956009454]
-position = Vector2(5.684342e-14, -4.0000005)
-scale = Vector2(0.06, 0.06)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("1_1onnt")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=575055104]
@@ -31,15 +30,15 @@ shape = SubResource("RectangleShape2D_1onnt")
 debug_color = Color(6.738305e-07, 0.60929, 0.64512944, 0.41960785)
 
 [node name="LeftRaycast" type="RayCast2D" parent="." unique_id=1820074969]
-position = Vector2(-13, -16)
+position = Vector2(-7, 1)
 target_position = Vector2(0, -16)
 
 [node name="RightRaycast" type="RayCast2D" parent="." unique_id=1572824128]
-position = Vector2(14, -16)
+position = Vector2(7, 1)
 target_position = Vector2(0, -16)
 
 [node name="MiddleRaycast" type="RayCast2D" parent="." unique_id=1455229721]
-position = Vector2(0, -16)
+position = Vector2(0, 1)
 target_position = Vector2(0, -16)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1570077375]

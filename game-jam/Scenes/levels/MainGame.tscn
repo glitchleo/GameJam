@@ -1,10 +1,13 @@
-[gd_scene format=4 uid="uid://cfyfnugfxo1oa"]
+[gd_scene format=3 uid="uid://cfyfnugfxo1oa"]
 
 [ext_resource type="PackedScene" uid="uid://d2r56ni2itbau" path="res://Scenes/actors/Player.tscn" id="2_wb3b2"]
 [ext_resource type="PackedScene" uid="uid://my06bpfsxam8" path="res://Scenes/actors/OxygenTank.tscn" id="3_wb3b2"]
-[ext_resource type="PackedScene" uid="uid://bk63a016y557x" path="res://Scenes/chunks/TestingChunk.tscn" id="4_mo533"]
-[ext_resource type="PackedScene" uid="uid://sbkrposu4n28" path="res://Scenes/chunks/parallax_background.tscn" id="4_te3ih"]
+[ext_resource type="PackedScene" uid="uid://sbkrposu4n28" path="res://Scenes/actors/parallax_background.tscn" id="4_te3ih"]
 [ext_resource type="AudioStream" uid="uid://bnvw2c68tot0x" path="res://assets/audio/music/GamePlay Audio.ogg" id="5_te3ih"]
+[ext_resource type="PackedScene" uid="uid://ro27g72reh1r" path="res://Scenes/chunks/chunk_1.tscn" id="5_tvmri"]
+[ext_resource type="Script" uid="uid://bl0kqlrxphdik" path="res://scripts/LevelGenerator.gd" id="6_tvmri"]
+[ext_resource type="PackedScene" uid="uid://xxkjarefa4q6" path="res://Scenes/chunks/chuck_2.tscn" id="7_oy8cf"]
+[ext_resource type="PackedScene" uid="uid://bgkj1y4caaa10" path="res://Scenes/chunks/chuck_3.tscn" id="8_f6dyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo533"]
 size = Vector2(288, 2182)
@@ -15,7 +18,7 @@ size = Vector2(288, 2182)
 [node name="Node2D" type="Node2D" unique_id=1309891255]
 
 [node name="Player" parent="." unique_id=1671369934 instance=ExtResource("2_wb3b2")]
-position = Vector2(854, 411)
+position = Vector2(908, 600)
 scale = Vector2(1, 0.99999994)
 maxSpeed = 304.977
 jumpHeight = 3.0
@@ -37,10 +40,6 @@ position = Vector2(1017, -204)
 [node name="OxygenTank5" parent="." unique_id=86886552 instance=ExtResource("3_wb3b2")]
 position = Vector2(361, -597)
 
-[node name="TestChunk" parent="." unique_id=964612007 instance=ExtResource("4_mo533")]
-position = Vector2(695, 403)
-tile_map_data = PackedByteArray("AAAEAAMAAAABAAAAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAKAAMAAAABAAAAAAALAAMAAAABAAAAAAAMAAMAAAABAAAAAAAMAAQAAAABAAEAAAALAAQAAAABAAEAAAAKAAQAAAABAAEAAAAJAAQAAAABAAEAAAAIAAQAAAABAAEAAAAHAAQAAAABAAEAAAAGAAQAAAABAAEAAAAFAAQAAAABAAEAAAAEAAQAAAABAAEAAAADAAQAAAABAAEAAAACAAQAAAABAAEAAAABAAQAAAAAAAEAAAACAAUAAAABAAEAAAADAAUAAAABAAEAAAAEAAUAAAABAAEAAAAFAAUAAAABAAEAAAAGAAUAAAABAAEAAAAHAAUAAAABAAEAAAAIAAUAAAABAAEAAAAJAAUAAAABAAEAAAAKAAUAAAABAAEAAAALAAUAAAABAAEAAAAMAAUAAAABAAEAAAABAAUAAAAAAAEAAAADAAMAAAABAAAAAAACAAMAAAABAAAAAAABAAMAAAAAAAAAAAARAAMAAAAAAAAAAAASAAMAAAABAAAAAAATAAMAAAABAAAAAAAUAAMAAAABAAAAAAAVAAMAAAACAAAAAAANAAMAAAACAAAAAAANAAQAAAACAAEAAAANAAUAAAACAAEAAAAPAAAAAAAAAAAAAAAQAAAAAAABAAAAAAARAAAAAAABAAAAAAASAAAAAAABAAAAAAATAAAAAAACAAAAAAALAP3/AAAAAAAAAAAMAP3/AAABAAAAAAANAP3/AAABAAAAAAAOAP3/AAACAAAAAAADAPn/AAAAAAEAAAADAPr/AAAAAAEAAAAGAPv/AAACAAEAAAAGAPz/AAABAAEAAAAHAPz/AAABAAAAAAAIAPz/AAACAAAAAAAGAPj/AAACAAAAAAAGAPn/AAACAAEAAAAGAPr/AAACAAEAAAAFAPj/AAABAAAAAAAEAPj/AAABAAAAAAADAPj/AAAAAAAAAAAEAPn/AAABAAEAAAAFAPn/AAABAAEAAAAKAPn/AAAAAAAAAAALAPn/AAABAAAAAAAMAPn/AAABAAAAAAANAPn/AAACAAAAAAABAPX/AAAAAAEAAAACAPX/AAABAAAAAAADAPX/AAABAAAAAAAEAPX/AAACAAAAAAABAPH/AAAEAAEAAAABAPL/AAAAAAEAAAABAPP/AAAEAAEAAAABAPT/AAAEAAEAAAACAPL/AAABAAAAAAADAPL/AAABAAAAAAAEAPL/AAACAAAAAAABAO//AAAAAAAAAAABAPD/AAAEAAEAAAACAO//AAABAAAAAAADAO//AAABAAAAAAAEAO//AAACAAAAAAAHAO7/AAAAAAAAAAAIAO7/AAABAAAAAAAJAO7/AAABAAAAAAAKAO7/AAABAAAAAAALAO7/AAACAAAAAAAEAPr/AAABAAEAAAAFAPr/AAABAAEAAAA=")
-
 [node name="ParallaxBackground" parent="." unique_id=1280149137 instance=ExtResource("4_te3ih")]
 
 [node name="WallBounderies" type="StaticBody2D" parent="." unique_id=402390871]
@@ -57,3 +56,10 @@ shape = SubResource("RectangleShape2D_te3ih")
 stream = ExtResource("5_te3ih")
 autoplay = true
 bus = &"Music"
+
+[node name="LevelGenerator" type="Node2D" parent="." unique_id=1244417034 node_paths=PackedStringArray("player")]
+position = Vector2(960, 0)
+script = ExtResource("6_tvmri")
+chunk_scenes = Array[PackedScene]([ExtResource("5_tvmri"), ExtResource("7_oy8cf"), ExtResource("8_f6dyx")])
+player = NodePath("../Player")
+chunk_height = 896.0
