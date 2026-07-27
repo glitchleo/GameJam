@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bkj1svvavgw7c" path="res://Scenes/chunks/chuck_4.tscn" id="9_bawi1"]
 [ext_resource type="PackedScene" uid="uid://d0cbvdqy46ad4" path="res://Scenes/chunks/chunk_5.tscn" id="10_5duld"]
 [ext_resource type="PackedScene" uid="uid://urt3drvb7ltm" path="res://Scenes/chunks/initial_chunk.tscn" id="10_res12"]
-[ext_resource type="Script" uid="uid://b48abnriqvbhd" path="res://Scenes/levels/wall_bounderies.gd" id="11_res12"]
+[ext_resource type="Script" uid="uid://b48abnriqvbhd" path="res://scripts/wall_bounderies.gd" id="11_res12"]
+[ext_resource type="Script" uid="uid://bu8ap32dypjpc" path="res://scripts/ui_manager.gd" id="12_myhh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo533"]
 size = Vector2(288, 2182)
@@ -18,15 +19,18 @@ size = Vector2(288, 2182)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_te3ih"]
 size = Vector2(288, 2182)
 
-[node name="Node2D" type="Node2D" unique_id=1309891255]
+[node name="MainGame" type="Node2D" unique_id=1309891255]
 metadata/_edit_horizontal_guides_ = [849.0, 901.0]
 
-[node name="Player" parent="." unique_id=1671369934 instance=ExtResource("2_wb3b2")]
+[node name="Player" parent="." unique_id=1671369934 node_paths=PackedStringArray("scoreDisplay", "timeDisplay") instance=ExtResource("2_wb3b2")]
 position = Vector2(937, 1061)
 scale = Vector2(1, 0.99999994)
+scoreDisplay = NodePath("../UIManager/MarginContainer/HBoxContainer/Score")
 maxSpeed = 250.0
 gravityScale = 30.0
 descendingGravityFactor = 1.617
+starting_oxygen = 60.0
+timeDisplay = NodePath("../UIManager/MarginContainer/HBoxContainer/OxygenTimer")
 
 [node name="ParallaxBackground" parent="." unique_id=1280149137 instance=ExtResource("4_te3ih")]
 
@@ -57,3 +61,104 @@ shape = SubResource("RectangleShape2D_mo533")
 [node name="RightWallHitbox" type="CollisionShape2D" parent="WallBounderies" unique_id=1001757042]
 position = Vector2(1776, 0)
 shape = SubResource("RectangleShape2D_te3ih")
+
+[node name="UIManager" type="CanvasLayer" parent="." unique_id=1936038786 node_paths=PackedStringArray("player")]
+process_mode = 3
+script = ExtResource("12_myhh5")
+player = NodePath("../Player")
+
+[node name="MarginContainer" type="MarginContainer" parent="UIManager" unique_id=75309548]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIManager/MarginContainer" unique_id=1149648490]
+layout_mode = 2
+
+[node name="OxygenTimer" type="Label" parent="UIManager/MarginContainer/HBoxContainer" unique_id=1926879445]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Score" type="Label" parent="UIManager/MarginContainer/HBoxContainer" unique_id=1040246678]
+layout_mode = 2
+text = "Score: 0"
+
+[node name="PauseMenu" type="Panel" parent="UIManager" unique_id=597179033]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIManager/PauseMenu" unique_id=386671841]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 174.0
+offset_right = 776.0
+offset_bottom = 474.0
+alignment = 1
+
+[node name="Label" type="Label" parent="UIManager/PauseMenu/VBoxContainer" unique_id=752270644]
+layout_mode = 2
+text = "PAUSE
+"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="UIManager/PauseMenu/VBoxContainer" unique_id=644819794]
+layout_mode = 2
+text = "RESUME"
+
+[node name="MenuButton" type="Button" parent="UIManager/PauseMenu/VBoxContainer" unique_id=112442991]
+layout_mode = 2
+text = "MENU"
+
+[node name="GameOverMenu" type="Panel" parent="UIManager" unique_id=562174263]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UIManager/GameOverMenu" unique_id=951348117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0, 0.05490196, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIManager/GameOverMenu" unique_id=392577759]
+layout_mode = 1
+offset_left = 376.0
+offset_top = 174.0
+offset_right = 776.0
+offset_bottom = 474.0
+alignment = 1
+
+[node name="GameOver" type="Label" parent="UIManager/GameOverMenu/VBoxContainer" unique_id=755857915]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="GameOver2" type="Label" parent="UIManager/GameOverMenu/VBoxContainer" unique_id=201276353]
+layout_mode = 2
+text = "YOU ARE OUT OF OXYGEN"
+horizontal_alignment = 1
+
+[node name="FinalScore" type="Label" parent="UIManager/GameOverMenu/VBoxContainer" unique_id=1913834967]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UIManager/GameOverMenu/VBoxContainer" unique_id=1973091878]
+layout_mode = 2
+text = "RESTART"
+
+[node name="MenuButton" type="Button" parent="UIManager/GameOverMenu/VBoxContainer" unique_id=1383918849]
+layout_mode = 2
+text = "MENU"

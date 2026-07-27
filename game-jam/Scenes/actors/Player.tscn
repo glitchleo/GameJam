@@ -106,11 +106,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=456218846 node_paths=PackedStringArray("PlayerCollider", "scoreDisplay", "leftRaycast", "middleRaycast", "rightRaycast", "timeDisplay")]
+[node name="Player" type="CharacterBody2D" unique_id=456218846 node_paths=PackedStringArray("PlayerCollider", "leftRaycast", "middleRaycast", "rightRaycast")]
 platform_wall_layers = 1
 script = ExtResource("1_310tt")
 PlayerCollider = NodePath("Hitbox")
-scoreDisplay = NodePath("UI/Score")
 maxSpeed = 50.0
 timeToReachMaxSpeed = 0.164
 jumpBuffering = 0.25
@@ -119,8 +118,6 @@ correctionAmount = 3.0
 leftRaycast = NodePath("LeftRaycast")
 middleRaycast = NodePath("MiddleRaycast")
 rightRaycast = NodePath("RightRaycast")
-starting_oxygen = 60.0
-timeDisplay = NodePath("UI/OxygenTimer")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=575055104]
 position = Vector2(0, 1.5)
@@ -139,21 +136,6 @@ target_position = Vector2(0, -16)
 position = Vector2(0, 1)
 target_position = Vector2(0, -16)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1570077375]
-
-[node name="OxygenTimer" type="Label" parent="UI" unique_id=705048283]
-offset_left = 86.0
-offset_top = 52.0
-offset_right = 213.0
-offset_bottom = 120.0
-
-[node name="Score" type="Label" parent="UI" unique_id=791171832]
-offset_left = 466.0
-offset_top = 40.0
-offset_right = 615.0
-offset_bottom = 108.0
-text = "Score: 0"
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2009455354]
 zoom = Vector2(0.6, 0.6)
 limit_left = 0
@@ -167,4 +149,4 @@ position = Vector2(-9.536743e-07, -9.536743e-07)
 scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"run"
-frame_progress = 0.6448451
+frame_progress = 0.03231832

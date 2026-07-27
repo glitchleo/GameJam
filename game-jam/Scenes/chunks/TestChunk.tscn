@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://bs4o7aytn5xrw"]
-
-[ext_resource type="PackedScene" uid="uid://bk63a016y557x" path="res://Scenes/chunks/TestingChunk.tscn" id="1_tsmf7"]
-
-[node name="TestChunk" type="Node2D" unique_id=877975424]
-
-[node name="TestChunk" parent="." unique_id=964612007 instance=ExtResource("1_tsmf7")]
